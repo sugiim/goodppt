@@ -16,5 +16,9 @@ end
 
 group :production do
   gem 'pg'
-  gem 'thin'
+  gem 'therubyracer-heroku'
+end
+
+group :development, :test do
+  gem 'sqlite3'
 end
