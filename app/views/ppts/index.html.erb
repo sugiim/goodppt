@@ -3,88 +3,50 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <title>Schedule</title>
-  <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
-  <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
-  
-  
-  <%  
-   @wdays = ["日", "月", "火", "水", "木", "金", "土"] 
-  
-   @d_status = ["出席", "欠席", "検討中"] 
-   
-   %>
-
-  <script type="text/javascript">
-
-  </script>
-
-<!--   <%= stylesheet_link_tag    "application" %> -->
-<!--  <%= javascript_include_tag "application" %> -->
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css"/>
+<link rel="stylesheet" href="css/custom.css"/>
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+<script src="js/custom.js"></script>
 </head>
 <body>
-
-
-<div class="navbar navbar-fixed-top"> <!--navbar-->
-    <div class="navbar-inner">
-    <div class="container-fluid">
-        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        </a>
-        <a class="brand" href="#">Remenber the Schedule</a>
-        <div class="nav-collapse">
-        <ul class="nav pull-right">
-            <li class="active"><a href="#">Member</a></li>
-            <li><a href="#about">Administrator</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        </div>
+  <div data-role="page" id="p-listview-thumbnail">
+    <div data-role="content">
+      <h3>サムネイル付きリスト</h3>
+      <ul data-role="listview">
+        <li>
+        <%= image_tag("rails.png") %>
+        <h3>リスト1</h3>
+        <p>リスト1の概要</p>
+        </li>
+        <li>
+        <img src="images/thumb02.jpg" />
+        <h3>リスト2</h3>
+        <p>リスト2の概要</p>
+        </li>
+        <li>
+        <img src="images/thumb03.jpg" />
+        <h3>リスト3</h3>
+        <p>リスト3の概要</p>
+        </li>
+        <li>
+        <img src="images/thumb04.jpg" />
+        <h3>リスト4</h3>
+        <p>リスト4の概要</p>
+        </li>
+        <li>
+        <img src="images/thumb05.jpg" />
+        <h3>リスト5</h3>
+        <p>リスト5の概要</p>
+        </li>
+        <li>
+        <img src="images/thumb06.jpg" />
+        <h3>リスト6</h3>
+        <p>リスト6の概要</p>
+        </li>
+      </ul>
     </div>
-    </div>
-</div> <!--/navbar-->
-
-
-<div class="container-fluid"  style="padding-top:30px"><!-- Header-->
-	<div class="page-header" style="vertical-align:bottom;">
-	<h3>FC Bamboo </h3>
-	<p>FOOTBALL Team </p>
-	</div> 	
-</div><!-- /Header-->
-
-<div class="row-fluid" > <!-- information-->
-<div class="span1">&nbsp;</div>
-<div class="span10"> 
-	<table class="table table-bordered table-striped">
-		<tr>
-			<th><span style="color:black"><i class="icon-bell" style="vertical-align:middle;"></i> information</span></th>
-		</tr>
-		<tr>
-			<td align="left">
-					<ul>
-					<div id="info_disp">
-						<% @ppts.each do |ppt| %>
-						<li><%= ppt.ppt_name %></li>
-						<% end %>
-						<a  href="#" id="rmore">・・・ read more </a>
-					</div>
-					<div id="info_hide" style="display: none;">
-						<li>xx君が新しくチームに加入しました。△△君からの紹介です。</li>
-						<li>6/8にユニフォームの申し込みを締め切ります。まだ申し込みしていな人はお忘れなく。</li>
-						<li>明日（7/12）は雨の予報が出ています。朝10時まで判断し、この欄に記載しますのでご確認ください。</li>
-						<li>xx君が新しくチームに加入しました。△△君からの紹介です。</li>
-					</div>
-					</ul>
-			</td>
-		</tr>
-	</table>
-</div>
-<div class="span1">&nbsp;</div>
-</div><!-- /information-->
-
-
-   </style>
+  </div>
 </body>
 </html>
