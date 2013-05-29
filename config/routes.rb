@@ -1,4 +1,6 @@
 Goodppt::Application.routes.draw do
+
+	resources :ppts
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
