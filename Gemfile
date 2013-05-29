@@ -9,16 +9,4 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-group :test, :development do
-  gem 'sqlite3'
-  gem 'heroku'
-end
-
-group :production do
-  gem 'pg'
-  gem 'therubyracer-heroku'
-end
-
-group :development, :test do
-  gem 'sqlite3'
-end
+gem 'pg'
