@@ -13,38 +13,16 @@
 <body>
   <div data-role="page" id="p-listview-thumbnail">
     <div data-role="content">
-      <h3>サムネイル付きリスト</h3>
+      <h3>プレゼンの人達</h3>
       <ul data-role="listview">
-        <li>
+      <% @ppts.each do |ppt| %>
+        <li><a href="#">
         <%= image_tag("rails.png") %>
-        <h3>リスト1</h3>
-        <p>リスト1の概要</p>
+        <h3>「<%= ppt.ppt_name %>」  <%= ppt.user_name %>  </h3><p>　　<%= ppt.ppt_desc %></p><span class="ui-li-count">10</span></a>
+        
+        </a>
         </li>
-        <li>
-        <img src="images/thumb02.jpg" />
-        <h3>リスト2</h3>
-        <p>リスト2の概要</p>
-        </li>
-        <li>
-        <img src="images/thumb03.jpg" />
-        <h3>リスト3</h3>
-        <p>リスト3の概要</p>
-        </li>
-        <li>
-        <img src="images/thumb04.jpg" />
-        <h3>リスト4</h3>
-        <p>リスト4の概要</p>
-        </li>
-        <li>
-        <img src="images/thumb05.jpg" />
-        <h3>リスト5</h3>
-        <p>リスト5の概要</p>
-        </li>
-        <li>
-        <img src="images/thumb06.jpg" />
-        <h3>リスト6</h3>
-        <p>リスト6の概要</p>
-        </li>
+        <% end %>
       </ul>
     </div>
   </div>

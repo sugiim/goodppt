@@ -8,5 +8,12 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-Ppt.create(ppt_id: "1", ppt_name: "xxで始めるxx", user_name: "田中", ppt_desc: "説明")
+Ppt.create(ppt_id: "1", ppt_name: "xxで始めるxx", user_name: "田中", point: 10, ppt_desc: "説明")
+Ppt.create(ppt_id: "1", ppt_name: "xxで始めるxx", user_name: "田中", point: 10, ppt_desc: "説明")
+Ppt.create(ppt_id: "1", ppt_name: "xxで始めるxx", user_name: "田中", point: 10, ppt_desc: "説明")
+Ppt.create(ppt_id: "1", ppt_name: "xxで始めるxx", user_name: "田中", point: 10, ppt_desc: "説明")
+Ppt.create(ppt_id: "1", ppt_name: "xxで始めるxx", user_name: "田中", point: 10, ppt_desc: "説明")
+Ppt.create(ppt_id: "1", ppt_name: "xxで始めるxx", user_name: "田中", point: 10, ppt_desc: "説明")
+Ppt.create(ppt_id: "1", ppt_name: "xxで始めるxx", user_name: "田中", point: 10, ppt_desc: "説明")
+Ppt.create(ppt_id: "1", ppt_name: "xxで始めるxx", user_name: "田中", point: 10, ppt_desc: "説明")
 

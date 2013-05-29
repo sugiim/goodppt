@@ -5,6 +5,7 @@ class CreatePpts < ActiveRecord::Migration
         t.string :ppt_name, null: false
         t.text :user_name
         t.text :ppt_desc
+        t.integer :point
         t.timestamps
     end
   end
