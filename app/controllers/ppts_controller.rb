@@ -6,8 +6,14 @@ class PptsController < ApplicationController
     end
     
     def show
-        @ppt = Ppt.where(ppt_id: params[:ppt_id])
+        @ppt = Ppt.where(ppt_id: params[:ppt_id])[0]
     end
+    
+    def show2
+        @ppt = Ppt.where(ppt_id: params[:ppt_id])[0]
+        render :json => @ppt
+    end
+    
     
     def new
     end
@@ -19,6 +25,11 @@ class PptsController < ApplicationController
     end
     
     def update
+        _ppt = Ppt.where(ppt_id: params[:ppt_id])[0]
+        _ppt.point = _ppt.point+1
+        ret = _ppt.save
+        render :json => ret
+
     end
     
     def destroy

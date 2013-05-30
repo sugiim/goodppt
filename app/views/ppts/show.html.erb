@@ -4,46 +4,41 @@
   <title>プレゼンじゃあ</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
   <script type="text/javascript" src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
-  
-  <script type="text/javascript">
-    $(document).ready( function() {
+</head>
+<body>
 
-		//// クリックしたら波紋出す
-    	$("#goodbtn").click(function (event) {
-		    $("#gdcount").text("...");
-		    
-		    //// TODO ajaxで更新処理
-		    
-		    
-		    //// 波紋出す
-		    var ripple = $("<span />").addClass("ripple").css({left: event.clientX - 250, top: event.clientY - 250, position: "absolute"}).appendTo("body");
-		    setTimeout(function () {
-		    ripple.remove();
-		    
-		    //// 波紋出したら数値をUpdate
-		    
-		    //TODO 取得する処理
-		    
-		    // 数値を再表示
-		    $("#gdcount").text("10");
-		    $("#gdcount").hide();
-		    $("#gdcount").show("slow");
-		    
-	   	 }, 1000);
-	  });
+<div data-role="page">
 
-    
-    });
-    
-    
+  <div data-role="header" class="ui-bar">
+    <h1><%= @ppt.user_name %>のプレゼン</h1>
+  </div><!-- /header -->
+
+  <div data-role="content">
+    <h4><%= @ppt.ppt_name %></h4>
+	<center>
+	<div style="text-aling:center">
+			<a id="goodbtn" href="#" data-role="button" data-inline=“true" data-iconpos="right" data-icon="star">
+				<span id="ring" >このプレゼン素敵やん！</span>
+			</a>
+	</div>
+	<div style="text-aling:center">
+			<a href="#" data-role="button" data-inline=“true” data-theme="e" Disabled ><span id="gdcount"><%= @ppt.point %></span></a>
+	</div>
+	
+	</center>
 
 
-  </script>
-  <style type="text/css">
+  </div><!-- /content -->
+
+  <div data-role="footer" class="ui-bar">
+    <a href="/ppts" data-role="button" data-icon="arrow-l" data-ajax="false">Back</a>
+  </div><!-- /footer -->
+</div><!-- /page -->
+
+    <style type="text/css">
 		@-webkit-keyframes ripple {
 		    0% {
 		        opacity: 1;
@@ -73,36 +68,72 @@
 		}
 
 	</style>
-</head>
-<body>
+ <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/prototype/1.7.1.0/prototype.js"></script>
+ <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+ <script type="text/javascript" src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
 
-<div data-role="page">
+  <script type="text/javascript">
+    $(document).ready(function(){
 
-  <div data-role="header" class="ui-bar">
-    <h1>いずみや</h1>
-  </div><!-- /header -->
+		//// クリックしたら波紋出す
+    	$("#goodbtn").click(function () {
+   		    $("#gdcount").text("...");
+		    
+		    //// TODO ajaxで更新処理
+		    		    
+		    //// 波紋出す
+		    var ripple = $("<span />").addClass("ripple").css({left: event.clientX - 250, top: event.clientY - 250, position: "absolute"}).appendTo("body");
+		    setTimeout(function () {
+		    ripple.remove();
+		    
+		    //// 波紋出したら数値をUpdate
+		    $.ajax({
+	            url: "/ppts/update/<%= @ppt.ppt_id %>",
+	            type: "POST",
+	            dataType: "json",
+	            success: function(data) {
+	            },
+	            error: function(data) {   
+	            }
+	        });
+		    //TODO 取得する処理
+		    
+		    // 数値を再表示
+		    getDetail();
+		    
+	   	 }, 1000);
+	  });
+	  
+	     // データを取得する
+	     function getDetail(){
+		     $.ajax({
+	            url: "/ppts/show2/<%= @ppt.ppt_id %>",
+	            type: "GET",
+	            dataType: "json",
+	            success: function(data) {
+	                   $("#gdcount").text(data.point);
+			 		   $("#gdcount").hide();
+				 	   $("#gdcount").show("slow");
+	            },
+	            error: function(data) {
+	                
+	            }
+	        });
+        }
+        
+        // 定期的にデータを最新化
+        setInterval(function(){
+        	getDetail();
+    	},10000);
+    	
+    	
+    }(jQuery));
+    
 
-  <div data-role="content">
-    <h4>大人気（でもない）ブログ「ヤナギさん家の子育て日記(http://yan（長いのでry</h4>
-	<center>
-	<div style="text-aling:center">
-			<a id="goodbtn" href="#" data-role="button" data-inline=“true" data-iconpos="right" data-icon="star">
-				<span id="ring" >このプレゼン素敵やん！</span>
-			</a>
-	</div>
-	<div style="text-aling:center">
-			<a href="#" data-role="button" data-inline=“true” data-theme="e" Disabled ><span id="gdcount">10</span></a>
-	</div>
-	
-	</center>
 
 
-  </div><!-- /content -->
 
-  <div data-role="footer" class="ui-bar">
-    <a href="index.html" data-role="button" data-icon="arrow-l">Back</a>
-  </div><!-- /footer -->
-</div><!-- /page -->
+  </script>
 
 </body>
 </html>

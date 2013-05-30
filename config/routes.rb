@@ -59,5 +59,7 @@ Goodppt::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
     match 'ppts/show/:ppt_id' => 'ppts#show'
+    match 'ppts/show2/:ppt_id' => 'ppts#show2'
+    match 'ppts/update/:ppt_id' => 'ppts#update'
 
 end
