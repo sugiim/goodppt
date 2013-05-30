@@ -2,6 +2,8 @@ Goodppt::Application.routes.draw do
     
 	resources :ppts
 	resources :ppt
+    
+    
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -57,7 +59,8 @@ Goodppt::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
+    # match ':controller(/:action(/:id))(.:format)'
+    match 'ppts/getlist/' => 'ppts#getlist'
     match 'ppts/show/:ppt_id' => 'ppts#show'
     match 'ppts/show2/:ppt_id' => 'ppts#show2'
     match 'ppts/update/:ppt_id' => 'ppts#update'

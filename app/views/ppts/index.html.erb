@@ -27,37 +27,7 @@
     </div>
   </div>
   
-    <script type="text/javascript">
-    $(document).ready(function(){
-	  
-	     // データを取得する
-	     function getDetail(){
-		     $.ajax({
-	            url: "/ppts/show11",
-	            cache : false,
-	            type: "GET",
-	            dataType: "json",
-	            success: function(data) {
-					data.each(function(d){
-					
-						$("#count_"d.ppt_id).text(d.point);
-					
-					})
-	            },
-	            error: function(data) {
-	                
-	            }
-	        });
-        }
-        
-        // 定期的にデータを最新化
-        setInterval(function(){
-        	getDetail();
-    	},10000);
-    	
-    	
-    }(jQuery));
-    
+
 
 
 
