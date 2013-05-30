@@ -5,7 +5,7 @@ class PptsController < ApplicationController
         @ppts = Ppt.order("p_order")
     end
     
-    def index2
+    def index11
         @ppts = Ppt.all
         render :json => @ppts
 
