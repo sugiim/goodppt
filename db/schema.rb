@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20130529150037) do
     t.text     "user_name"
     t.text     "ppt_desc"
     t.integer  "point"
+    t.integer  "order"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

@@ -2,7 +2,13 @@ class PptsController < ApplicationController
     
     
     def index
+        @ppts = Ppt.order("")
+    end
+    
+    def index2
         @ppts = Ppt.all
+        render :json => @ppts
+
     end
     
     def show
