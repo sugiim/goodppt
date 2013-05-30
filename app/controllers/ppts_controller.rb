@@ -40,6 +40,12 @@ class PptsController < ApplicationController
     def destroy
     end
     
+    def reset
+        
+        Ppt.update_all('point=0')
+        
+    end
+    
     
     
 end
