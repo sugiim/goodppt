@@ -6,7 +6,7 @@ class PptsController < ApplicationController
     end
     
     def show
-        
+        @ppt = Ppt.where(ppt_id: params[:ppt_id])
     end
     
     def new

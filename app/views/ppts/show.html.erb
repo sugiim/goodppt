@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>プレゼンじゃあ</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+  
+  <script type="text/javascript">
+    $(document).ready( function() {
+
+		//// クリックしたら波紋出す
+    	$("#goodbtn").click(function (event) {
+		    $("#gdcount").text("...");
+		    
+		    //// TODO ajaxで更新処理
+		    
+		    
+		    //// 波紋出す
+		    var ripple = $("<span />").addClass("ripple").css({left: event.clientX - 250, top: event.clientY - 250, position: "absolute"}).appendTo("body");
+		    setTimeout(function () {
+		    ripple.remove();
+		    
+		    //// 波紋出したら数値をUpdate
+		    
+		    //TODO 取得する処理
+		    
+		    // 数値を再表示
+		    $("#gdcount").text("10");
+		    $("#gdcount").hide();
+		    $("#gdcount").show("slow");
+		    
+	   	 }, 1000);
+	  });
+
+    
+    });
+    
+    
+
+
+  </script>
+  <style type="text/css">
+		@-webkit-keyframes ripple {
+		    0% {
+		        opacity: 1;
+		        -webkit-transform: scale(0);
+		    }
+		    100% {
+		        opacity: 0;
+		        -webkit-transform: scale(1);
+		    }
+		}
+
+		.ripple {
+		    width: 500px;
+		    height: 500px;
+		    border-radius: 250px;
+		    background-image: -webkit-gradient(
+		        radial,
+		        center center, 0,
+		        center center, 300,
+		        from(rgba(252,243,28,0)),
+		        to(rgba(252,243,28,1))
+		    );
+		    -webkit-animation-name: ripple;
+		    -webkit-animation-iteration-count: 1;
+		    -webkit-animation-duration: 1s;
+		    -webkit-animation-timing-function: ease-out;
+		}
+
+	</style>
+</head>
+<body>
+
+<div data-role="page">
+
+  <div data-role="header" class="ui-bar">
+    <h1>いずみや</h1>
+  </div><!-- /header -->
+
+  <div data-role="content">
+    <h4>大人気（でもない）ブログ「ヤナギさん家の子育て日記(http://yan（長いのでry</h4>
+	<center>
+	<div style="text-aling:center">
+			<a id="goodbtn" href="#" data-role="button" data-inline=“true" data-iconpos="right" data-icon="star">
+				<span id="ring" >このプレゼン素敵やん！</span>
+			</a>
+	</div>
+	<div style="text-aling:center">
+			<a href="#" data-role="button" data-inline=“true” data-theme="e" Disabled ><span id="gdcount">10</span></a>
+	</div>
+	
+	</center>
+
+
+  </div><!-- /content -->
+
+  <div data-role="footer" class="ui-bar">
+    <a href="index.html" data-role="button" data-icon="arrow-l">Back</a>
+  </div><!-- /footer -->
+</div><!-- /page -->
+
+</body>
+</html>

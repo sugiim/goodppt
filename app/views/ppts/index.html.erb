@@ -16,7 +16,7 @@
       <h3>プレゼンの人達</h3>
       <ul data-role="listview">
       <% @ppts.each do |ppt| %>
-        <li><a href="#">
+        <li><a href="/ppts/show/<%= ppt.ppt_id%>">
         <%= image_tag("rails.png") %>
         <h3>「<%= ppt.ppt_name %>」  <%= ppt.user_name %>  </h3><p>　　<%= ppt.ppt_desc %></p><span class="ui-li-count">10</span></a>
         
