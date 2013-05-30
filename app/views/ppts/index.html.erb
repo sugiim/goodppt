@@ -26,5 +26,40 @@
       </ul>
     </div>
   </div>
+  
+    <script type="text/javascript">
+    $(document).ready(function(){
+	  
+	     // データを取得する
+	     function getDetail(){
+		     $.ajax({
+	            url: "/ppts/show11/<%= @ppt.ppt_id %>",
+	            cache : false,
+	            type: "GET",
+	            dataType: "json",
+	            success: function(data) {
+	                   $("#gdcount").text(data.point);
+			 		   $("#gdcount").hide();
+				 	   $("#gdcount").show("slow");
+	            },
+	            error: function(data) {
+	                
+	            }
+	        });
+        }
+        
+        // 定期的にデータを最新化
+        setInterval(function(){
+        	getDetail();
+    	},10000);
+    	
+    	
+    }(jQuery));
+    
+
+
+
+
+  </script>
 </body>
 </html>
