@@ -2,7 +2,7 @@ class PptsController < ApplicationController
     
     
     def index
-        @ppts = Ppt.order("")
+        @ppts = Ppt.order("p_order")
     end
     
     def index2

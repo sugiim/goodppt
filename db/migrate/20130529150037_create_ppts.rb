@@ -6,7 +6,7 @@ class CreatePpts < ActiveRecord::Migration
         t.text :user_name
         t.text :ppt_desc
         t.integer :point
-        t.integer :order
+        t.integer :p_order
         t.timestamps
     end
   end
