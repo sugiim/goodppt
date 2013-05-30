@@ -18,7 +18,7 @@
       <% @ppts.each do |ppt| %>
         <li><a href="/ppts/show/<%= ppt.ppt_id%>" data-ajax="false">
         <%= image_tag(ppt.ppt_id) %>
-        <h3><%= ppt.ppt_name %> /  <%= ppt.user_name %>  </h3><p>　　<%= ppt.ppt_desc %></p><span class="ui-li-count" id="count_<%= ppt.ppt_id %>"><%= ppt.point %></span></a>
+        <h3><%= ppt.ppt_name %> /  <%= ppt.user_name %>  </h3></p><span class="ui-li-count" id="count_<%= ppt.ppt_id %>"><%= ppt.point %></span>
         
         </a>
         </li>
