@@ -8,7 +8,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-Ppt.create(p_order: 0, ppt_id: "1", ppt_name: "IT酔拳　はじめるよー", user_name: "すぎい", point: 0, ppt_desc: "")
+Ppt.create(p_order: 0, ppt_id: "0", ppt_name: "IT酔拳　はじめるよー", user_name: "すぎい", point: 0, ppt_desc: "")
 Ppt.create(p_order: 1, ppt_id: "1", ppt_name: "「Visual Studio 2012について」", user_name: "飯島くん", point: 0, ppt_desc: "")
 Ppt.create(p_order: 2, ppt_id: "2", ppt_name: "「大人気ブログ「ヤナギさん家の子育て日記(http://yan（長いのでry」", user_name: "やなぎはら", point: 0, ppt_desc: "")
 Ppt.create(p_order: 3, ppt_id: "3", ppt_name: "「ＳＥの星」", user_name: "北島くん", point: 0, ppt_desc: "")
