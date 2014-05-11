@@ -2,12 +2,15 @@ class PptsController < ApplicationController
     
     
     def index
-        @ppts = Ppt.order("p_order")
-    end
-    
-    def getlist
+        # @ppts = Ppt.order("p_order")
         _p = Ppt.order("p_order")
         render :json => _p
+    end
+    
+    def init
+        # @ppts = Ppt.order("p_order")
+        #_p = Ppt.order("p_order")
+        #render :json => _p
     end
     
     def show

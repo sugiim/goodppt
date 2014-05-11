@@ -62,7 +62,9 @@ Goodppt::Application.routes.draw do
     # match ':controller(/:action(/:id))(.:format)'
     match 'reset/' => 'ppts#reset'
     match 'ppts/show/:ppt_id' => 'ppts#show'
-    match 'ppts/show2/:ppt_id' => 'ppts#show2'
+    # match 'ppts/show2/:ppt_id' => 'ppts#show2'
+    match '/' => 'ppts#init'
+    match 'init' => 'ppts#init'
     match 'ppts/update/:ppt_id' => 'ppts#update'
 
 end
