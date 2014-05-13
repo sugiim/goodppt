@@ -1,6 +1,6 @@
 (function(){
 
-    // テンプレートの変更　{{}}
+    // template　{{}}
     _.templateSettings = {
           interpolate : /\{\{(.+?)\}\}/g
     };
@@ -11,7 +11,7 @@
     //console.log($('#item-template').html());
     
     /////////////////////////
-    // プレゼンモデル
+    // model
     var Presentation = Backbone.Model.extend({
         idAttribute: "ppt_id",
         defaults: function() {
@@ -24,21 +24,20 @@
     });
 
     /////////////////////////
-    // コレクション
+    // Collection
     var PresenList = Backbone.Collection.extend({
 
-        // RESTに対応しているURL
+        
         url: "/ppts",
-        // 使うモデルはプレゼンモデル.
         model: Presentation,
         comparator: 'ppt_order',
-        parse : function parse(res) {    // modelにsetする値を指定する
+        parse : function parse(res) {    
             return res;
         },
 
       });
     
-    // presenListの生成.
+    // presenList
     var presenList = new PresenList();
     
 
@@ -84,7 +83,7 @@
 
         e.preventDefault();
         //$.mobile.changePage('#detail');
-        $.mobile.changePage( "#detail_dialog", { role: "dialog" } );
+        $.mobile.changePage( $("#detail_dialog"), { role: "dialog" } );
 
 
       }
@@ -191,7 +190,7 @@
 
       },
 
-      // 新しいタスクViewを作って、親ulにliとして突っ込む(ここでやっとModelがDOMに落ちる
+
       addOne: function(presen) {
         //console.log("addOne : "+ presen.get("ppt_name"));
         var view = new PresenView({model: presen});
@@ -199,7 +198,7 @@
       },
 
 
-      // Collectionの中のModelの分だけaddOne関数
+      
       addAll: function() {
         console.log("addAll!");
         presenList.each(this.addOne, this);
