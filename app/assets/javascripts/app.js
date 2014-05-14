@@ -98,7 +98,7 @@
       el : $('#detail_dialog'),
       
       // Cache the template function for a single item.
-      detailTemplate: _.template($('#detail-template').html()),
+      //detailTemplate: _.template($('#detail-template').html()),
 
       // The DOM events specific to an item.
       events: {
@@ -108,8 +108,9 @@
       // Re-render the titles of the todo item.
       render: function() {
         console.log("DetailView render : " + this.model.get("ppt_name"));
-        this.$el.html(this.detailTemplate(this.model.toJSON()));
+        //this.$el.html(this.detailTemplate(this.model.toJSON()));
         //this.$el.html(this.model.toJSON());
+        $("#ppt_name").text(this.model.get("ppt_name"));
         return this;
 
       },
