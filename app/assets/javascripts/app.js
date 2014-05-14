@@ -177,8 +177,9 @@
                collection.each( function(item, index){
 
                 var presen = presenList.get(item.get("ppt_id"));
+                console.log(item.get("ppt_name")+":"+item.get("point"));
                 presen.set("point", item.get("point"));
-                //$('#count_'+presen.get("ppt_id")).text(presen.get("point"));
+                $('#count_'+presen.get("ppt_id")).text(presen.get("point"));
                 
               });
               console.log("fetchAll success!");
