@@ -4,6 +4,7 @@ class PptsController < ApplicationController
     def index
         # @ppts = Ppt.order("p_order")
         _p = Ppt.order("p_order")
+        
         render :json => _p
     end
     
@@ -33,9 +34,11 @@ class PptsController < ApplicationController
     end
     
     def update
+        logger.debug("PptsController update")
         _ppt = Ppt.where(ppt_id: params[:ppt_id])[0]
         _ppt.point = _ppt.point+1
         ret = _ppt.save
+        logger.debug(ret)
         render :json => ret
 
     end

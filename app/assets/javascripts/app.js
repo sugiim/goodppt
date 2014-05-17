@@ -75,9 +75,11 @@
         // 
 
         console.log("popDetail : " + this.model.get("ppt_name"));
-
-        dview = new DetailView({model: this.model});
-        dview.render();
+        
+        this.model.set({vf: true},{silent: true});
+        //dview.dialogview({model: this.model});
+        
+        dview.render(this.model);
         
         //$("#detail_dialog").append(dview.render().el);
         //$("#detail_dialog").html();
@@ -107,40 +109,55 @@
       // The DOM events specific to an item.
       events: {
         "click #good"   : "countup",
+        "click #close"   : "dialogClose",
       },
 
       // Re-render the titles of the todo item.
-      render: function() {
-        console.log("DetailView render : " + this.model.get("ppt_name"));
+      render: function(presen) {
+        console.log("DetailView render : " + presen.get("ppt_name")+ ":"+presen.get("vf"));
         //this.$el.html(this.detailTemplate(this.model.toJSON()));
         //this.$el.html(this.model.toJSON());
-        $("#ppt_name").text(this.model.get("ppt_name"));
+        $("#ppt_name").text(presen.get("ppt_name"));
+        this.model = presen;
         return this;
 
       },
+      dialogClose: function() {
+        console.log("DetailView dialogClose : " + this.model.get("ppt_name"));
+
+        this.model.set({vf: false},{silent: true});
+
+        $('.ui-dialog').dialog('close');
+
+      },
+
+      dialogview: function(){
+        
+      },
 
       countup: function(){
-          console.log("DetailView countup : "+this.model.get("ppt_name"));
           
-
           var ripple = $("<span />").addClass("ripple").css({left: event.clientX - 250, top: event.clientY - 250, position: "absolute"}).appendTo("body");
           setTimeout(function () {
           ripple.remove();
           
           }, 1000);
 
-          this.model.save(null, {
-            success: function(model, resp) {
-              console.log("countup success: ");
-              
-            },
-            error: function(model, resp) {
-                console.log("countup error: ");
-                return false;
-            }
-          
-          });
-
+          if(this.model.get("vf") == true){
+            console.log("DetailView countup : "+this.model.get("ppt_name"));
+            this.model.save(null, {
+              success: function(model, resp) {
+                console.log("countup success: ");
+                
+              },
+              error: function(model, resp) {
+                  console.log("countup error: ");
+                  //return false;
+              }
+            
+            });
+          }
+          return;
       }
     });
     
@@ -181,9 +198,12 @@
                collection.each( function(item, index){
 
                 var presen = presenList.get(item.get("ppt_id"));
-                console.log(item.get("ppt_name")+":"+item.get("point"));
-                presen.set("point", item.get("point"));
-                $('#count_'+presen.get("ppt_id")).text(presen.get("point"));
+                //console.log(item);
+                //console.log(presen.get("ppt_name")+":"+presen.get("ppt_id")　+":"+presen.get("point"));
+                console.log(item.get("ppt_name")+":"+item.get("ppt_id")　+":"+item.get("point"));
+                //presen.set({point: item.get("point")} ,{silent: true});
+                //presen.set({point: item.get("point")});
+                $('#count_'+presen.get("ppt_id")).text(item.get("point"));
                 
               });
               console.log("fetchAll success!");
@@ -218,7 +238,7 @@
 
     console.log("Hello AppView!");
     var appview = new AppView();
-    var dview ;
+    var dview = new DetailView();
     appview.render();
 
     var timer = _.extend({

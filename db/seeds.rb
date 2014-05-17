@@ -8,9 +8,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-Ppt.create(p_order: 0, ppt_id: "0", ppt_name: "桐山さんプレゼン", user_name: "桐山さん", point: 0, ppt_desc: "")
-Ppt.create(p_order: 1, ppt_id: "1", ppt_name: "本多さんプレゼン", user_name: "本多さん", point: 0, ppt_desc: "")
-Ppt.create(p_order: 2, ppt_id: "2", ppt_name: "黒田くんプレゼン", user_name: "黒田くん", point: 0, ppt_desc: "")
+Ppt.create(p_order: 0, ppt_id: "0", ppt_name: "桐山さんプレゼン", user_name: "桐山さん", point: 1, ppt_desc: "")
+Ppt.create(p_order: 1, ppt_id: "1", ppt_name: "本多さんプレゼン", user_name: "本多さん", point: 2, ppt_desc: "")
+Ppt.create(p_order: 2, ppt_id: "2", ppt_name: "黒田くんプレゼン", user_name: "黒田くん", point: 3, ppt_desc: "")
 Ppt.create(p_order: 3, ppt_id: "3", ppt_name: "越智くんプレゼン", user_name: "越智くん", point: 0, ppt_desc: "")
 Ppt.create(p_order: 4, ppt_id: "4", ppt_name: "石井さんプレゼン", user_name: "石井さん", point: 0, ppt_desc: "")
 Ppt.create(p_order: 5, ppt_id: "5", ppt_name: "北島くんプレゼン", user_name: "北島くん", point: 0, ppt_desc: "")
