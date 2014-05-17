@@ -142,26 +142,48 @@
           $("#updating").show();
           var ripple = $("<span />").addClass("ripple").css({left: event.clientX - 250, top: event.clientY - 250, position: "absolute"}).appendTo("body");
           setTimeout(function () {
-          ripple.remove();
-          $("#count_point").show();
-          $("#updating").hide();
+            ripple.remove();
+            $("#count_point").show();
+            $("#updating").hide();
+
+            if(this.model.get("vf") == true){
+              console.log("DetailView countup : "+this.model.get("ppt_name"));
+              this.model.save(null, {
+                success: function(model, resp) {
+                  console.log("countup success: ");
+                  $('#count_point').text(model.get("point"));
+                  $("#count_point").show();
+                  $("#updating").hide();
+                },
+                error: function(model, resp) {
+                    console.log("countup error: ");
+                  $("#count_point").show();
+                  $("#updating").hide();
+                }
+              
+              });
+            }
+
           }, 1000);
 
-          if(this.model.get("vf") == true){
-            console.log("DetailView countup : "+this.model.get("ppt_name"));
-            this.model.save(null, {
-              success: function(model, resp) {
-                console.log("countup success: ");
-                $('#count_point').text(model.get("point"));
-                
-              },
-              error: function(model, resp) {
-                  console.log("countup error: ");
-                  //return false;
-              }
+          // if(this.model.get("vf") == true){
+          //   console.log("DetailView countup : "+this.model.get("ppt_name"));
+          //   this.model.save(null, {
+          //     success: function(model, resp) {
+          //       console.log("countup success: ");
+          //       $('#count_point').text(model.get("point"));
+          //       $("#count_point").show();
+          //       $("#updating").hide();
+          //     },
+          //     error: function(model, resp) {
+          //         console.log("countup error: ");
+          //       $("#count_point").show();
+          //       $("#updating").hide();
+          //     }
             
-            });
-          }
+          //   });
+          // }
+
           return;
       }
     });
