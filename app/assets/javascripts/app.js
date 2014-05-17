@@ -216,6 +216,7 @@
                   // );
                   //this.$("#presen-list").empty();
                   presenList.trigger('reset');
+
               },
               error : function error() {
                   console.log("fetch error!");
@@ -260,6 +261,7 @@
       addAll: function() {
         console.log("addAll!");
         presenList.each(this.addOne, this);
+        $('#presen-list').trigger("create");
       },
 
 
@@ -272,6 +274,7 @@
     var appview = new AppView();
     var dview = new DetailView();
     appview.render();
+
 
     var timer = _.extend({
       start : function() {
