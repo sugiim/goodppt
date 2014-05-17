@@ -1,6 +1,6 @@
 (function(){
 
-    // template　{{}}
+    // template{{}}
     _.templateSettings = {
           interpolate : /\{\{(.+?)\}\}/g
     };
@@ -31,7 +31,7 @@
         url: "/ppts",
         model: Presentation,
         comparator: 'ppt_order',
-        parse : function parse(res) {    
+        parse : function parse(res){    
             return res;
         },
 
@@ -117,7 +117,7 @@
         console.log("DetailView render : " + presen.get("ppt_name")+ ":"+presen.get("vf"));
         //this.$el.html(this.detailTemplate(this.model.toJSON()));
         //this.$el.html(this.model.toJSON());
-        $("#user_name").text("#"+presen.get("p_order")+" "+presen.get("user_name")+"のプレゼン");
+        $("#user_name").text("#"+presen.get("p_order")+" "+presen.get("user_name")+" のプレゼン");
         $("#ppt_name").text(presen.get("ppt_name"));
         $('#count_point').text(presen.get("point"));
         this.model = presen;
@@ -142,7 +142,7 @@
           $("#count_point").hide();
           $("#updating").show();
 
-          if(this.model.get("vf") == true){
+          if(this.model.get("vf")==true){
             console.log("DetailView countup : "+this.model.get("ppt_name"));
             this.model.save(null, {
               success: function(model, resp) {
@@ -233,8 +233,8 @@
 
                 var presen = presenList.get(item.get("ppt_id"));
                 //console.log(item);
-                //console.log(presen.get("ppt_name")+":"+presen.get("ppt_id")　+":"+presen.get("point"));
-                console.log(item.get("ppt_name")+":"+item.get("ppt_id")　+":"+item.get("point"));
+                //console.log(presen.get("ppt_name")+":"+presen.get("ppt_id")+":"+presen.get("point"));
+                //console.log(item.get("ppt_name")+":"+item.get("ppt_id")+":"+item.get("point"));
                 //presen.set({point: item.get("point")} ,{silent: true});
                 //presen.set({point: item.get("point")});
                 $('#count_'+presen.get("ppt_id")).text(item.get("point"));
@@ -271,6 +271,8 @@
 
     // Finally, we kick things off by creating the **App**.
     $.ajaxSetup({ cache: false });
+    $('.ui-icon-loading').hide();
+
     console.log("Hello AppView!");
     var appview = new AppView();
     var dview = new DetailView();
@@ -286,6 +288,9 @@
       }
     }, Backbone.Events);
     timer.start();
+
+
+    return;
   
     
 }());
