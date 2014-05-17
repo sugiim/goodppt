@@ -267,7 +267,7 @@
     });
 
     // Finally, we kick things off by creating the **App**.
-
+    $.ajaxSetup({ cache: false });
     console.log("Hello AppView!");
     var appview = new AppView();
     var dview = new DetailView();
