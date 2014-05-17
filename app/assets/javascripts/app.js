@@ -149,11 +149,13 @@
                 $('#count_point').text(model.get("point"));
                 // $("#count_point").show();
                 // $("#updating").hide();
+                return;
               },
               error: function(model, resp) {
                   console.log("countup error: ");
                 // $("#count_point").show();
                 // $("#updating").hide();
+                return;
               }
             
             });
