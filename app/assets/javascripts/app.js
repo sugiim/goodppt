@@ -40,6 +40,7 @@
     // presenList
     var presenList = new PresenList();
     
+    
 
     /////////////////////////
     // Presen Item View
@@ -75,11 +76,12 @@
 
         console.log("popDetail : " + this.model.get("ppt_name"));
 
-        var dview = new DetailView({model: this.model});
+        dview = new DetailView({model: this.model});
+        dview.render();
         
         //$("#detail_dialog").append(dview.render().el);
         //$("#detail_dialog").html();
-        $("#detail_dialog").append(dview.render().el);
+        //$("#detail_dialog").append(dview.render().el);
 
         e.preventDefault();
         //$.mobile.changePage('#detail');
@@ -96,6 +98,8 @@
 
       //... is a list tag.
       el : $('#detail_dialog'),
+
+      
       
       // Cache the template function for a single item.
       //detailTemplate: _.template($('#detail-template').html()),
@@ -161,7 +165,7 @@
                   // collection.each( function(item, index){
                   // console.log("presenList["+index+"]: "+ item.get("ppt_id"));}
                   // );
-                  this.$("#presen-list").empty();
+                  //this.$("#presen-list").empty();
                   presenList.trigger('reset');
               },
               error : function error() {
@@ -214,6 +218,7 @@
 
     console.log("Hello AppView!");
     var appview = new AppView();
+    var dview ;
     appview.render();
 
     var timer = _.extend({
@@ -221,7 +226,7 @@
         setInterval(function() {
           // 
           appview.fetchAll();
-        }, 3000);
+        }, 10000);
       }
     }, Backbone.Events);
     timer.start();
