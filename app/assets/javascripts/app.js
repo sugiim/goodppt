@@ -145,7 +145,7 @@
             console.log("DetailView countup : "+this.model.get("ppt_name"));
             this.model.save(null, {
               success: function(model, resp) {
-                console.log("countup success: ");
+                console.log("countup success: "+model.get("ppt_name")+":"+model.get("point"));
                 $('#count_point').text(model.get("point"));
                 // $("#count_point").show();
                 // $("#updating").hide();
@@ -158,7 +158,7 @@
             
             });
           }
-          
+
           var ripple = $("<span />").addClass("ripple").css({left: event.clientX - 250, top: event.clientY - 250, position: "absolute"}).appendTo("body");
           setTimeout(function () {
             ripple.remove();
@@ -187,7 +187,7 @@
           //   });
           // }
 
-          return;
+          //return;
       }
     });
     
