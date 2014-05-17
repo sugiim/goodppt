@@ -87,7 +87,7 @@
 
         e.preventDefault();
         //$.mobile.changePage('#detail');
-        $.mobile.changePage( $("#detail_dialog"), { role: "dialog" } );
+        $.mobile.changePage( $("#detail_dialog"), { role: "dialog", transition: "fade" });
 
 
       }
@@ -117,6 +117,7 @@
         console.log("DetailView render : " + presen.get("ppt_name")+ ":"+presen.get("vf"));
         //this.$el.html(this.detailTemplate(this.model.toJSON()));
         //this.$el.html(this.model.toJSON());
+        $("#user_name").text("#"+presen.get("p_order")+" "+presen.get("user_name")+"のプレゼン");
         $("#ppt_name").text(presen.get("ppt_name"));
         $('#count_point').text(presen.get("point"));
         this.model = presen;

@@ -53,19 +53,20 @@
       <h3>IT-Suiken LT</h3>
     </div>
     <div role="main" class="ui-content">
-      <ul data-role="listview" role="listbox" id="presen-list"> </ul>
+      <ul data-role="listview" role="listbox" id="presen-list" data-header-theme="e"> </ul>
     </div>
   </div>
 
 
   <div data-role="dialog" id="detail_dialog" data-close-btn="none">
     <div data-role="header">
-      <h1 id="ppt_name"></h1>
+      <h1 id="user_name"></h1>
     </div>
     <div data-role="content">
-      <a data-role="button" id="good"><img src="/assets/Like-Beer.png"><br/>
+      <h3 id="ppt_name"></h3>
+      <a data-role="button" id="good" data-theme="e"><img src="/assets/Like-Beer.png"><br/>
         <div id="updating"><img src="/assets/ajax_loading.gif" /></div><span id="count_point"></span></a>
-      <a data-role="button" data-icon="delete" class="ui-btn ui-btn-icon-left ui-icon-delete" id="close">Close</a>
+      <a data-role="button" data-icon="delete" data-theme="e" data-inline="true" id="close">Close</a>
 
     </div>
   </div>
@@ -78,7 +79,7 @@
 
   <!-- Templates -->
   <script type="text/template" id="item-template">
-        <a href="" data-role="button" data-inline="true" data-rel="dialog" data-transition="pop" class="popDetail" id="presenlist">
+        <a href="" data-role="button" data-inline="true" data-rel="dialog" data-transition="turn" class="popDetail" id="presenlist">
         <h3>{{ppt_name}} /  {{user_name}}  </h3><p><span class="ui-li-count" id="count_{{ppt_id}}">{{point}}</span></p>
         </a>
   </script>
