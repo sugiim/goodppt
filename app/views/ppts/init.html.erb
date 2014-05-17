@@ -38,6 +38,11 @@
     }
 
   </style>
+  <style>
+    #updating {
+      display: none;
+    }
+  </style>
 
 <title>presen List</title>
 </head>
@@ -53,13 +58,14 @@
   </div>
 
 
-  <div data-role="dialog" id="detail_dialog">
+  <div data-role="dialog" id="detail_dialog" data-close-btn="none">
     <div data-role="header">
       <h1 id="ppt_name"></h1>
     </div>
     <div data-role="content">
-      <a data-role="button" id="good">＋１</a>
-      <a data-role="button" id="close">Close</a>
+      <a data-role="button" id="good"><img src="/assets/Like-Beer.png"><br/>
+        <div id="updating"><img src="/assets/ajax_loading.gif" /></div><span id="count_point"></span></a>
+      <a data-role="button" data-icon="delete" class="ui-btn ui-btn-icon-left ui-icon-delete" id="close">Close</a>
 
     </div>
   </div>

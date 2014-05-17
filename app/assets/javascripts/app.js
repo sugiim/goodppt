@@ -118,6 +118,7 @@
         //this.$el.html(this.detailTemplate(this.model.toJSON()));
         //this.$el.html(this.model.toJSON());
         $("#ppt_name").text(presen.get("ppt_name"));
+        $('#count_point').text(presen.get("point"));
         this.model = presen;
         return this;
 
@@ -137,10 +138,13 @@
 
       countup: function(){
           
+          $("#count_point").hide();
+          $("#updating").show();
           var ripple = $("<span />").addClass("ripple").css({left: event.clientX - 250, top: event.clientY - 250, position: "absolute"}).appendTo("body");
           setTimeout(function () {
           ripple.remove();
-          
+          $("#count_point").show();
+          $("#updating").hide();
           }, 1000);
 
           if(this.model.get("vf") == true){
@@ -148,6 +152,7 @@
             this.model.save(null, {
               success: function(model, resp) {
                 console.log("countup success: ");
+                $('#count_point').text(model.get("point"));
                 
               },
               error: function(model, resp) {
