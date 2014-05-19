@@ -284,7 +284,7 @@
         setInterval(function() {
           // 
           appview.fetchAll();
-        }, 10000);
+        }, 7000);
       }
     }, Backbone.Events);
     timer.start();

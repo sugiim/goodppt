@@ -60,10 +60,11 @@ Goodppt::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
     # match ':controller(/:action(/:id))(.:format)'
+    root :to => 'ppts#init'
     match 'reset/' => 'ppts#reset'
     match 'ppts/show/:ppt_id' => 'ppts#show'
     # match 'ppts/show2/:ppt_id' => 'ppts#show2'
-    match '/' => 'ppts#init'
+    match 'i' => 'ppts#init'
     match 'init' => 'ppts#init'
     match 'ppts/update/:ppt_id' => 'ppts#update'
 
